@@ -1,0 +1,20 @@
+# Pycharm
+.idea
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# backup files
+*~
+*.swp
+
+# Translations
+*.mo
+
+# Mac DS
+*.DS_Store
+
+# css
+*.css.map
