@@ -22,7 +22,7 @@
                             <!--例3：嵌套website-->
                             <!--<p><t t-esc="teacher.id"/> <t t-esc="teacher.name"/></p>-->
                             <p>
-                                <a t-attf-href="/academy/{{ slug(teacher) }}">
+                                <a t-attf-href="/academy/{{ slug(teacher) }}"> <!-- slug方法将teacher对象转为浏览器地址栏上的字符串 -->
                                     <t t-esc="teacher.name"/>
                                 </a>
                             </p>
