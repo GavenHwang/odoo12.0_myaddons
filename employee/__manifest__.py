@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/employee.xml',
         'views/menu.xml',
+        'data/data.xml',
     ],
     'demo': [],
     'qweb': [],

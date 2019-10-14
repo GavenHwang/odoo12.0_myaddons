@@ -56,7 +56,15 @@
             <field name="name">员工信息列表</field>
             <field name="model">ml.employee</field>
             <field name="arch" type="xml">
-                <tree string="员工信息">
+                <tree string="员工信息"
+                      decoration-bf="name=='bf'"
+                      decoration-it="name=='it'"
+                      decoration-danger="name=='danger'"
+                      decoration-info="name=='info'"
+                      decoration-muted="name=='muted'"
+                      decoration-primary="name=='primary'"
+                      decoration-success="name=='success'"
+                      decoration-warning="name=='warning'">
                     <field name="name"/>
                     <field name="company_id"/>
                     <field name="gender"/>

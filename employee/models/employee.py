@@ -3,6 +3,7 @@ import base64
 import logging
 
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.modules.module import get_module_resource
 from odoo import tools, _
 
@@ -55,8 +56,16 @@ class Employee(models.Model):
     work_email = fields.Char(string=u'工作邮箱')
     leader_id = fields.Many2one('ml.employee', string=u'所属上级')
     subordinate_ids = fields.One2many('ml.employee', 'leader_id', string=u'下属')
+    # age = fields.Integer(states={'draft': [('readonly', '=', False), ('invisible', '=', False), ('required', '=', True)]})
 
     note = fields.Text(string=u'备注信息')
+
+    @api.model
+    def default_get(self, fields_list):
+        defaults = super(Employee, self).default_get(fields_list)
+        defaults['birthday'] = fields.Date.today()
+        defaults['company_id'] = self.env.user.company_id.id
+        return defaults
 
     @api.model
     def create(self, values):
@@ -67,3 +76,10 @@ class Employee(models.Model):
     def write(self, values):
         tools.image_resize_images(values)
         return super(Employee, self).write(values)
+
+    # constrains只能在界面层面对字段进行约束，对API调用不起效果
+    @api.constrains('company_id')
+    def _constrains_company_id(self):
+        self.ensure_one()
+        if not self.company_id:
+            raise ValidationError(u'公司不能为空！')

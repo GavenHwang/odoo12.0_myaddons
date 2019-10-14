@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="bf" model="ml.employee">
+            <field name="name">bf</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="it" model="ml.employee">
+            <field name="name">it</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="danger" model="ml.employee">
+            <field name="name">danger</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="info" model="ml.employee">
+            <field name="name">info</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="muted" model="ml.employee">
+            <field name="name">muted</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="primary" model="ml.employee">
+            <field name="name">primary</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="success" model="ml.employee">
+            <field name="name">success</field>
+            <field name="gender">male</field>
+        </record>
+        <record id="warning" model="ml.employee">
+            <field name="name">warning</field>
+            <field name="gender">male</field>
+        </record>
+    </data>
+</odoo>
