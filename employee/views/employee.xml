@@ -20,7 +20,7 @@
                                 <group>
                                     <group string="基本信息">
                                         <field name="gender" required="True"/>
-                                        <field name="country_id"/>
+                                        <field name="country_id" options="{'no_open':True, 'no_create': True}"/>
                                         <field name="birthday"/>
                                         <field name="marital"/>
                                     </group>
@@ -36,6 +36,7 @@
                             </page>
                             <page string="下属信息">
                                 <field name="subordinate_ids">
+                                    <!--editable="bottom"表示不弹出新窗口来创建明细记录-->
                                     <tree editable="bottom">
                                         <field name="name" attrs="{'required': True}"/>
                                         <field name="gender" required="True"/>
@@ -73,15 +74,12 @@
             <field name="arch" type="xml">
                 <search string="员工">
                     <!--用于搜索的字段-->
-                    <field name="name" string="员工"
-                           filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
+                    <field name="name" string="员工" filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
                     <field name="gender" string="性别"/>
                     <separator/>
                     <!--定义好的过滤器-->
-                    <filter string="男员工" name="gender_male"
-                            domain="[('gender', '=', 'male')]"/>
-                    <filter string="女员工" name="gender_female"
-                            domain="[('gender', '=', 'female')]"/>
+                    <filter string="男员工" name="gender_male" domain="[('gender', '=', 'male')]"/>
+                    <filter string="女员工" name="gender_female" domain="[('gender', '=', 'female')]"/>
                     <separator/>
                     <!--分组-->
                     <group expand="0" string="分组">

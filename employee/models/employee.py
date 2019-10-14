@@ -25,6 +25,7 @@ MARITAL = [
 
 class Employee(models.Model):
     _name = "ml.employee"
+    _table = "ml_employee"
     _description = '''
         员工信息
     '''

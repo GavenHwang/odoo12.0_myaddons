@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!--一级菜单-->
+        <!--一级菜单 web_icon是一级菜单特有属性，表示展示的图标-->
         <menuitem
                 id="menu_employee_root"
                 name="员工"
