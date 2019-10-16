@@ -26,6 +26,7 @@ MARITAL = [
 
 class Employee(models.Model):
     _name = "ml.employee"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _table = "ml_employee"
     _description = '''
         员工信息
@@ -56,15 +57,21 @@ class Employee(models.Model):
     work_email = fields.Char(string=u'工作邮箱')
     leader_id = fields.Many2one('ml.employee', string=u'所属上级')
     subordinate_ids = fields.One2many('ml.employee', 'leader_id', string=u'下属')
-    # age = fields.Integer(states={'draft': [('readonly', '=', False), ('invisible', '=', False), ('required', '=', True)]})
-
+    # age = fields.Integer(states={'draft': [('readonly', '=', False), ('invisible', '=', False), ('required', '=',
+    # True)]})
     note = fields.Text(string=u'备注信息')
+
+    color = fields.Integer(u'颜色')
+    priority = fields.Selection([('0', 'Low'), ('1', 'Normal'), ('2', 'High')], 'Priority', default='1')
+    kanban_state = fields.Selection([('normal', 'In Progress'), ('blocked', 'Blocked'), ('done', 'Ready for next stage')],
+                                    'Kanban State', default='normal')
 
     @api.model
     def default_get(self, fields_list):
         defaults = super(Employee, self).default_get(fields_list)
         defaults['birthday'] = fields.Date.today()
         defaults['company_id'] = self.env.user.company_id.id
+        defaults['country_id'] = self.country_id.search([('code', '=', 'CN')], limit=1).id
         return defaults
 
     @api.model

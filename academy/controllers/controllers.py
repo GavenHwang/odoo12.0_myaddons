@@ -29,10 +29,10 @@ class Academy(http.Controller):
     # def route_example_04(self, name):
     #     return '<h1>{}</h1>'.format(name)
 
-    # 例5：动态路@http.route('/academy/<int:id>/', auth='public', website=True)
-    #     # def route_example_05(self, id):
-    #     #     ret由（数字）
-    # urn '<h1>{} ({})</h1>'.format(id, type(id).__name__)
+    # 例5：动态路由（数字）
+    # @http.route('/academy/<int:id>/', auth='public', website=True)
+    # def route_example_05(self, id):
+    #     return '<h1>{} ({})</h1>'.format(id, type(id).__name__)
 
     @http.route('/academy/<model("academy.teachers"):teacher>/', auth='public', website=True)
     def route_example_06(self, teacher):

@@ -10,7 +10,7 @@
     'sequence': 15,
     'category': 'Uncategorized',
     'license': 'LGPL-3',
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/employee.xml',
