@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!--一级菜单 web_icon是一级菜单特有属性，表示展示的图标-->
-        <menuitem
-                id="menu_employee_root"
-                name="员工"
-                web_icon="hr,static/description/icon.png"
-                sequence="1"/>
-        <!--二级菜单 -->
-        <menuitem
-                id="menu_employee_info"
-                name="员工信息"
-                parent="menu_employee_root"
-                sequence="1"/>
-        <!--三级菜单 -->
-        <menuitem
-                id="menu_view_ml_employee_tree"
-                name="员工档案"
-                action="view_ml_employee_action"
-                parent="menu_employee_info"
-                sequence="1"/>
+        <!--一级菜单: 员工 web_icon是一级菜单特有属性，表示展示的图标-->
+        <menuitem id="menu_employee_root"
+                  name="员工"
+                  web_icon="hr,static/description/icon.png"
+                  sequence="10"/>
+        <!--二级菜单：员工/员工信息 -->
+        <menuitem id="menu_employee_info"
+                  name="员工信息"
+                  parent="menu_employee_root"
+                  sequence="10"/>
+        <!--三级菜单：员工/员工信息/员工档案 -->
+        <menuitem id="menu_view_ml_employee_tree"
+                  name="员工档案"
+                  action="view_ml_employee_action"
+                  parent="menu_employee_info"
+                  sequence="10"/>
+        <!--二级菜单：员工/报表 -->
+        <menuitem id="menu_employee_report"
+                  name="报表"
+                  parent="menu_employee_root"
+                  sequence="20"/>
+        <!--三级菜单：员工/报表/员工信息表 -->
+        <menuitem id="menu_ml_employee_information_report"
+                  name="员工信息表"
+                  action="action_ml_employee_information_report"
+                  parent="menu_employee_report"
+                  sequence="10"/>
     </data>
 </odoo>

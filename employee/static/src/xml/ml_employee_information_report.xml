@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="EmployeeInformationReportTemplate">
+        <table style="width:100%;margin:0px;padding:0px;border:0px;">
+            <thead>
+                <tr>
+                    <td colspan="7" style="text-align:center;background:white;border:0px">
+                        <h2>员工信息表</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="background:white;text-align:left;padding:5px;border:0px;">
+                        <t t-if="widget.data">
+                            公司:<span t-esc="widget.data['company_name']"/>
+                        </t>
+                    </td>
+                    <td colspan="3" style="background:white;text-align:center;padding:5px;border:0px;">
+                        <t t-if="widget.data">
+                            打印日期：<span t-esc="widget.data['date']"/>
+                        </t>
+                    </td>
+                    <td colspan="2" style="background:white;padding:5px;text-align:right;border:0px;">单位: 元</td>
+                </tr>
+                <tr>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;word-spacing:20px;">姓名</td>
+                    <td width="10%" style="text-align:center;border:1px solid #cacaca;">性别</td>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;">生日</td>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;">婚姻</td>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;">薪资</td>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;">电话</td>
+                    <td width="15%" style="text-align:center;border:1px solid #cacaca;">地址</td>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-if="widget.data['lines']">
+                    <t t-set="lines" t-value="widget.data['lines']"/>
+                    <t t-set="i" t-value="0"/>
+                    <t t-foreach="lines" t-as="line">
+                        <tr class="row_click">
+                            <td style="vertical-align:middle;padding:5px;text-align:left;border:1px solid #cacaca;">
+                                <t t-esc="line[0]"/>
+                            </td>
+                            <td width="20%" style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[1]"/>
+                            </td>
+                            <td style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[2]"/>
+                            </td>
+                            <td style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[3]"/>
+                            </td>
+                            <td style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[4]"/>
+                            </td>
+                            <td style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[5]"/>
+                            </td>
+                            <td style="vertical-align:middle;padding:5px;text-align:right;border:1px solid #cacaca;">
+                                <t t-esc="line[6]"/>
+                            </td>
+                            <t t-set="i" t-value="i+1"/>
+                        </tr>
+                    </t>
+                </t>
+            </tbody>
+        </table>
+    </t>
+</templates>

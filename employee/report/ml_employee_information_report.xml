@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!--员工信息表参数界面-->
+        <record model="ir.ui.view" id="ml_employee_information_report_form">
+            <field name="name">ml_employee_information_report_form</field>
+            <field name="model">ml.employee.information.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="company_id" options="{'no_create_edit':1,'no_create':1,'no_open':1}"/>
+                    </group>
+
+                    <footer>
+                        <button string="打开表" name="open_table" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string="导出" name="print_excel" type="object" class="oe_highlight"/>
+                        <button string="取消" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--员工信息表分析动作-->
+        <record model="ir.actions.act_window" id="action_ml_employee_information_report">
+            <field name="name">员工信息表</field>
+            <field name="res_model">ml.employee.information.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

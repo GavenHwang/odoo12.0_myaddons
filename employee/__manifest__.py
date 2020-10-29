@@ -14,11 +14,15 @@
     'data': [
         'security/ir.model.access.csv',
         'views/employee.xml',
+        'views/employee_templates.xml',
+        'report/ml_employee_information_report.xml',
         'views/menu.xml',
         'data/data.xml',
     ],
     'demo': [],
-    'qweb': [],
+    'qweb': [
+        'static/src/xml/*.xml'
+    ],
     'installable': True,
     'application': True,
     'auto_install': False,
